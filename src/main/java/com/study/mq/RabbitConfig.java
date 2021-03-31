@@ -47,22 +47,22 @@ public class RabbitConfig {
 
 
     @Bean
-    public Binding bindDirectA(@Qualifier("queueA") Queue queue, @Qualifier("directExchange") Exchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("DIRECT_EXCHANGE_A").noargs();
+    public Binding bindDirectA(@Qualifier("queueA") Queue queue, @Qualifier("directExchange") DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("DIRECT_EXCHANGE_A");
     }
 
     @Bean
-    public Binding bindDirectB(@Qualifier("queueB") Queue queue, @Qualifier("directExchange") Exchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("DIRECT_EXCHANGE_B").noargs();
+    public Binding bindDirectB(@Qualifier("queueB") Queue queue, @Qualifier("directExchange") DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("DIRECT_EXCHANGE_B");
     }
 
     @Bean
-    public Binding bindFanoutA(@Qualifier("queueA") Queue queue, @Qualifier("fanoutExchange") Exchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("FANOUT_EXCHANGE_A").noargs();
+    public Binding bindFanoutA(@Qualifier("queueA") Queue queue, @Qualifier("fanoutExchange") FanoutExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange);
     }
 
     @Bean
-    public Binding bindFanouttB(@Qualifier("queueB") Queue queue, @Qualifier("fanoutExchange") Exchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("FANOUT_EXCHANGE_B").noargs();
+    public Binding bindFanouttB(@Qualifier("queueB") Queue queue, @Qualifier("fanoutExchange") FanoutExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange);
     }
 }
